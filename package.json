@@ -1,0 +1,47 @@
+{
+  "name": "@smnielsen/cover-my-ass",
+  "version": "0.0.1",
+  "description": "Check for allowed open-source licenses and whitelist your own",
+  "main": "index.js",
+  "repository": "git@github.com:smnielsen/cover-my-ass.git",
+  "author": "Simon Nielsen <simonnielsen@live.se>",
+  "license": "MIT",
+  "scripts": {
+    "eslint": "eslint '**/*.{js,jsx}'",
+    "prettier": "prettier **/*.{js,md}",
+    "lint": "yarn run eslint && yarn run prettier -l",
+    "lint:fix": "yarn run eslint --fix && yarn run prettier --write",
+    "test": "yarn lint && yarn run test:unit",
+    "test:unit": "jest --coverage",
+    "prepublish": "safe-publish-latest"
+  },
+  "bin": {
+    "cover-my-ass": "bin/coverMyAss.sh"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@smnielsen/eslint-config": "0.3.0",
+    "@smnielsen/prettier-config": "^0.1.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^26.0.1",
+    "mocha": "^8.0.1",
+    "prettier": "^2.0.5",
+    "safe-publish-latest": "^1.1.4"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "commander": "^5.1.0",
+    "license-checker": "^25.0.1"
+  }
+}
