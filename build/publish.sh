@@ -16,8 +16,6 @@ log "Bootstrapping linting monorepo"
 yarn install
 log "Running tests"
 yarn test
-log "Choose version to publish"
-yarn run version
 log "Publishing changes"
 yarn publish
 
