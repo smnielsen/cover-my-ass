@@ -1,14 +1,14 @@
-const createLicenseCheck = require('./src/licenseCheck')
+const { init, licenseCheck } = require('./src/licenseCheck')
 
 describe('Licenses used in this project', () => {
-  let licenseCheck
+  let packages
 
   beforeAll(async () => {
-    licenseCheck = createLicenseCheck({})
+    packages = init()
   })
 
   test('should contain only allowed FOSS licenses', () => {
-    const disallowed = licenseCheck()
+    const disallowed = licenseCheck(packages)
     expect(disallowed).toEqual([])
   })
 })
