@@ -4,8 +4,9 @@ const { init, licenseCheck } = require('./src/licenseCheck')
 describe('Licenses used in this project', () => {
   let packages
 
-  beforeEach(async () => {
-    packages = await init(process.cwd())
+  // eslint-disable-next-line
+  before(async () => {
+    packages = await init()
   })
 
   it('should contain only allowed FOSS licenses', () => {

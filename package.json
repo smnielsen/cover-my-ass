@@ -11,8 +11,9 @@
     "prettier": "prettier **/*.{js,md}",
     "lint": "yarn run eslint && yarn run prettier -l",
     "lint:fix": "yarn run eslint --fix && yarn run prettier --write",
-    "test": "yarn lint && yarn run test:unit",
-    "test:unit": "jest --coverage && mocha mocha.js",
+    "test": "yarn lint && yarn test:jest && yarn test:mocha",
+    "test:jest": "jest --coverage",
+    "test:mocha": "mocha mocha.js",
     "prepublish": "safe-publish-latest",
     "compliance": "bin/coverMyAss.sh"
   },
@@ -34,8 +35,6 @@
   "devDependencies": {
     "@smnielsen/eslint-config": "0.3.0",
     "@smnielsen/prettier-config": "^0.1.0",
-    "chai": "^4.2.0",
-    "chai-as-promised": "^7.1.1",
     "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
@@ -49,9 +48,12 @@
     "safe-publish-latest": "^1.1.4"
   },
   "dependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "colors": "^1.4.0",
     "commander": "^5.1.0",
     "jest": "^26.0.1",
-    "license-checker": "^25.0.1"
+    "license-checker": "^25.0.1",
+    "mocha": "^8.0.1"
   }
 }
