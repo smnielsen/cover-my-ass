@@ -82,6 +82,10 @@ const licenseCheck = (packages) =>
         pkg.licenses = pkg.licenses.replace(/[()]/g, '').split(/\s+OR\s+/)
       }
     }
+    if (pkg.private) {
+      // Always except private since it's probably a local dependency
+      return false
+    }
     if (
       Array.isArray(pkg.licenses) &&
       pkg.licenses.find((license) => allowedLicenses.indexOf(license) !== -1)
@@ -94,7 +98,7 @@ const licenseCheck = (packages) =>
       return false
     }
     const disallowed = whitelistedOrganisations.filter(
-      (org) => pkg.repository.indexOf(org) !== -1,
+      (org) => pkg.repository && pkg.repository.indexOf(org) !== -1,
     )
     if (disallowed.length > 0) {
       // Internal package
